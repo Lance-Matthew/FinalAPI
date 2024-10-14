@@ -375,7 +375,7 @@ class BookCollectionController extends Controller
     }
 
     public function completedBooks(){
-        $books = BookCollection::where('status', "Comeplete")->get();
+        $books = BookCollection::where('Status', "Comeplete")->get();
         return response()->json(['items' => $books], 200);
     }
 }
