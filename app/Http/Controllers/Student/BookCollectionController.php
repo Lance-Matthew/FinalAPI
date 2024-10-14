@@ -37,7 +37,7 @@ class BookCollectionController extends Controller
             'SubjectCode' => 'nullable|string|max:255',
             'SubjectDesc' => 'nullable|string|max:255',
             'code' => 'nullable|string|max:5',
-            'status' => 'required|string|max:255',
+            'Status' => 'required|string|max:255',
             'claiming_schedule' => 'nullable|string|max:255',
             'shift' => "nullable|string|max:255",
             'stubag_id' => 'required|integer|exists:student_bags,id',
@@ -74,7 +74,7 @@ class BookCollectionController extends Controller
             'SubjectCode' => 'nullable|string|max:255',
             'SubjectDesc' => 'nullable|string|max:255',
             'code' => 'nullable|string|max:5',
-            'status' => 'required|string|max:255',
+            'Status' => 'required|string|max:255',
             'claiming_schedule' => 'nullable|string|max:255',
             'shift' => "nullable|string|max:255",
             'stubag_id' => 'required|integer|exists:student_bags,id',
@@ -87,13 +87,13 @@ class BookCollectionController extends Controller
             $validatedData['code'] = $this->generateCode();
         }
 
-        if($validatedData['status'] == 'Request'){
+        if($validatedData['Status'] == 'Request'){
             if($stocks == 0){
                 $highestReservation = BookCollection::
                 where('BookName', $validatedData['BookName'])
                 ->max('reservationNumber');
     
-                $validatedData['status'] = 'Reserved';
+                $validatedData['Status'] = 'Reserved';
                 $validatedData['reservationNumber'] = ++$highestReservation;
                 $requestController->reduceStock(1, $validatedData['BookName'], "reserved");
                 $departmentController->displaycounts($validatedData['Department'], 1, 'reserved', 'add');
@@ -108,7 +108,7 @@ class BookCollectionController extends Controller
                 else{
                     return response()->json(['message' => 'Department not found in either shift'], status: 400);
                 }
-                $validatedData['status'] = 'Claim';
+                $validatedData['Status'] = 'Claim';
                 $validatedData['reservationNumber'] = null;
                 $requestController->reduceStock(1, $validatedData['BookName'], "stock");
                 $departmentController->displaycounts($validatedData['Department'], 1, 'claim', 'add');
@@ -176,7 +176,7 @@ class BookCollectionController extends Controller
             'SubjectCode' => 'nullable|string|max:255',
             'SubjectDesc' => 'nullable|string|max:255',
             'code' => 'nullable|string|max:5',
-            'status' => 'nullable|string|max:255',
+            'Status' => 'nullable|string|max:255',
             'claiming_schedule' => 'nullable|string|max:255',
             'stubag_id' => 'nullable|integer|exists:student_bags,id',
             'dateReceived' => 'nullable|date',
@@ -220,7 +220,7 @@ class BookCollectionController extends Controller
             ->max('reservationNumber');
             $requestController->reduceStock(1, $bookname, "reserved");
             $departmentController->displaycounts($bookCollection->Department, 1, 'reserved', 'add');
-            $bookCollection->status = 'Reserved';
+            $bookCollection->Status = 'Reserved';
             $bookCollection->reservationNumber = ++$highestReservation;
             $bookCollection->save();
         }
@@ -235,7 +235,7 @@ class BookCollectionController extends Controller
             else{
                 return response()->json(['message' => 'Department not found in either shift'], status: 400);
             }
-            $bookCollection->status = $status;
+            $bookCollection->Status = $status;
             $bookCollection->reservationNumber = null;
             $departmentController->displaycounts($bookCollection->Department, 1, 'claim', 'add');
             $departmentController->displaycounts($bookCollection->Department, 1, 'reserved', 'subtract');
@@ -243,7 +243,7 @@ class BookCollectionController extends Controller
 
         if($status == 'Complete'){
             $bookCollection->dateReceived = now();
-            $bookCollection->status = $status;
+            $bookCollection->Status = $status;
             $bookCollection->claiming_schedule = null;
             $bookCollection->code = null;
             $departmentController->displaycounts($bookCollection->Department, 1, 'complete', 'add');
@@ -294,7 +294,7 @@ class BookCollectionController extends Controller
                 where('BookName', $bookCollection->BookName)
                 ->max('reservationNumber');
     
-                $bookCollection->status = 'Reserved';
+                $bookCollection->Status = 'Reserved';
                 $bookCollection->reservationNumber = ++$highestReservation;
                 $bookCollection->save();
                 $departmentController->displaycounts($bookCollection->Department, 1, 'reserved', 'add');
@@ -310,7 +310,7 @@ class BookCollectionController extends Controller
                 else{
                     return response()->json(['message' => 'Department not found in either shift'], status: 400);
                 }
-                $bookCollection->status = 'Claim';
+                $bookCollection->Status = 'Claim';
                 $bookCollection->reservationNumber = null;
                 $departmentController->displaycounts($bookCollection->Department, 1, 'claim', 'add');
                 $requestController->reduceStock(1, $bookname, "stock");
@@ -342,7 +342,7 @@ class BookCollectionController extends Controller
                 return response()->json(['message' => 'Department not found in either shift'], 400);
             }
     
-            $books->status = 'Claim';
+            $books->Status = 'Claim';
             $books->reservationNumber = null;
             $departmentController->displaycounts($books->Department, 1, 'claim', 'add');
             $departmentController->displaycounts($books->Department, 1, 'reserved', 'subtract');
@@ -375,7 +375,7 @@ class BookCollectionController extends Controller
     }
 
     public function completedBooks(){
-        $books = BookCollection::where('status', "Comeplete")->get();
+        $books = BookCollection::where('Status', "Complete")->get();
         return response()->json(['items' => $books], 200);
     }
 }
