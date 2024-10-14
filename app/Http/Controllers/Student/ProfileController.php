@@ -8,7 +8,7 @@ use App\Models\Student\Profile;
 class ProfileController extends Controller
 {
     public function index(){
-        $profile = Profile::all();
+        $profile = Profile::orderBy('id','desc')->all();
         return response() -> json(['profiles' => $profile]);
     }
 
