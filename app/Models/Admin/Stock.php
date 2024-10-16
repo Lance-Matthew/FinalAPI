@@ -17,6 +17,8 @@ class Stock extends Model
         'Body',
     ];
 
+    public $timestamps = false; // Disable timestamps
+    
     // // RELATION TO COURSES TABLE
     // public function departments(){
     //     return $this->belongsTo(Department::class);
