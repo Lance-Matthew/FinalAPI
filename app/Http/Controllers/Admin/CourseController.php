@@ -9,6 +9,7 @@ use App\Models\Admin\Course;
 class CourseController extends Controller
 {
     // SHOWS ALL COURSES
+    /////// test
     public function index(){
         $data = Course::all();
         return response()->json($data);
