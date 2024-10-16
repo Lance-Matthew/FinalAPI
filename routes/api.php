@@ -103,3 +103,5 @@ Route::get('/uniforms/{Course}/{Gender}/{Type}/{Body}', [ItemrsoController::clas
 Route::put('/uniforms/stock/{department}/{course}/{gender}/{type}/{body}/{size}', [ItemrsoController::class, 'specificUniform']);
 Route::put('/uniforms/reducestock/{count}/{department}/{course}/{gender}/{type}/{body}/{size}', [ItemrsoController::class, 'reduceStock']);
 Route::put('/books/reducestock/{count}/{department}/{bookname}/{subcode}/{subdesc}', [ItemBookController::class, 'reduceStock']);
+Route::post('/uniforms/create', [ItemrsoController::class, 'store']);
+Route::delete('/uniforms/delete/{id}', [ItemrsoController::class, 'destroy']);

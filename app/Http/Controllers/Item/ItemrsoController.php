@@ -11,9 +11,30 @@ class ItemrsoController extends Controller
       
    }
 
-   public function store(Request $request){  
+   public function store(Request $request){
+      $request->validate([
+         'Department' => 'required|max:20|string',
+         'Course' => 'required|max:20|string',
+         'Gender' => 'required|max:20|string',
+         'Type' => 'required|max:20|string',
+         'Body' => 'required|max:20|string',
+         'Size' => 'required|max:20|string',
+         'Stock' => 'required|max:20|int',
+         'Reserved' => 'required|max:20|int',
+      ]);
 
-   }
+      Itemrso::create([
+         'Department' => $request->Department,
+         'Course' => $request->Course,
+         'Gender' => $request->Gender,
+         'Type' => $request->Type,
+         'Body' => $request->Body,
+         'Size' => $request->Size,
+         'Stock' => $request->Stock,
+         'Reserved' => $request->Reserved,
+      ]);
+      return response()->json(['message' => "Added Succesfully"]);
+   } 
 
    public function show($Course, $Gender, $Type, $Body){
       $data = Itemrso::where('Course', $Course)
@@ -32,7 +53,9 @@ class ItemrsoController extends Controller
 
    }
    public function destroy($id){
-
+      $data = Itemrso::find($id);
+      $data -> delete();
+      return response()->json(['message' => 'item deleted']);
    }
 
    public function reduceStock($count, $course, $gender, $type, $body, $size,$logic)
