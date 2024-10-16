@@ -15,10 +15,14 @@ class MailsController extends Controller
     }
 
     public function store(Request $request){  
+        $profile = new ProfileController();
+        $profile->addread($request['notificationId'] );
         return Mails::create($request->all());
     }
 
     public function createData(array $data) {
+        $profile = new ProfileController();
+        $profile->addread($data['notificationId'] );
         return Mails::create($data);
     }
 

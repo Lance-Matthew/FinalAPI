@@ -60,6 +60,21 @@ class ProfileController extends Controller
         ], 200);
     }
 
+    public function addread($id){
+        $profile = Profile::find($id);
+
+        if (!$profile) {
+            return response()->json(['error' => 'Profile not found'], 404);
+        }
+        $profile->notifcount += 1;
+        $profile->save();
+
+        return response()->json([
+            'message' => 'add notifcount status updated successfully',
+            'profile' => $profile
+        ], 200);
+    }
+
      public function destroy($id){
         $profile = Profile::find($id);
         $profile -> delete();
