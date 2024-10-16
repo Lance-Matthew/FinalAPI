@@ -14,6 +14,8 @@ class Mails extends Model
         'description',
         'time',
         'isDone',
+        'isTapped',
+        'isRead',
         'redirectTo',
         'notificationId'
     ];

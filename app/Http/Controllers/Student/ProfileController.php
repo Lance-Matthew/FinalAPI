@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student\Profile;
+
 class ProfileController extends Controller
 {
     public function index(){
@@ -40,6 +41,36 @@ class ProfileController extends Controller
 
         return response()->json([
             'message' => 'Profile updated successfully',
+            'profile' => $profile
+        ], 200);
+    }
+
+    public function zeroread($id){
+        $profile = Profile::find($id);
+
+        if (!$profile) {
+            return response()->json(['error' => 'Profile not found'], 404);
+        }
+        $profile->notifcount = 0;
+        $profile->save();
+
+        return response()->json([
+            'message' => 'Zero notifcount status updated successfully',
+            'profile' => $profile
+        ], 200);
+    }
+
+    public function addread($id){
+        $profile = Profile::find($id);
+
+        if (!$profile) {
+            return response()->json(['error' => 'Profile not found'], 404);
+        }
+        $profile->notifcount += 1;
+        $profile->save();
+
+        return response()->json([
+            'message' => 'add notifcount status updated successfully',
             'profile' => $profile
         ], 200);
     }

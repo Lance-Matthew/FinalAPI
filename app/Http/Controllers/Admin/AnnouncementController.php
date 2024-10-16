@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Student\Profile;
+use App\Http\Controllers\Student\MailsController;
 use App\Models\Admin\Announcement;
 
 class AnnouncementController extends Controller
@@ -22,6 +24,17 @@ class AnnouncementController extends Controller
             'department' => $request->department,
             'body' => $request->body,
         ]);
+        $profile = Profile::where('Department', $request->department)->get();
+        foreach($profile as $profiles){
+            $mailController = new MailsController();
+            $mailController->createdata([
+                'description' => "A New Anouncement for {$request->department}",
+                'time' => now(),
+                'isDone' => false,
+                'redirectTo' => 'Anouncement',
+                'notificationId' => $profiles->id
+            ]);
+        }
         return response()->json(['message' => "Added Succesfully"]);
     }
     public function update(Request $request, $id){

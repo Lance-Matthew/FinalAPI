@@ -93,6 +93,23 @@ class StudentBagItemController extends Controller
             $validatedData['code'] = $this->generateCode();
         }
 
+        $mailController = new MailsController();
+        $description = $stocks == 0
+        ? "The Uniform {$validatedData['code']} you've requested is now RESERVED."
+        : "The Uniform {$validatedData['code']} you've requested is now ready to be CLAIMED.";
+
+        $redirect = $stocks == 0
+        ? "Reserve"
+        : "Claim";
+
+        $mailController->createdata([
+            'description' => $description,
+            'time' => now(),
+            'isDone' => false,
+            'redirectTo' => $redirect,
+            'notificationId' => $validatedData['stubag_id']
+        ]);
+
         if($validatedData['Status'] == 'Request'){
             if($stocks == 0){
                 $highestReservation = StudentBagItem::
@@ -275,6 +292,16 @@ class StudentBagItemController extends Controller
         }
 
         if($status == 'Complete'){
+            $mailController = new MailsController();
+            $description = "Your Book has been CLAIMED.";
+
+            $mailController->createdata([
+                'description' => $description,
+                'time' => now(),
+                'isDone' => false,
+                'redirectTo' => 'Complete',
+                'notificationId' => $items->id
+            ]);
             $items = StudentBagItem::find($id)->first();
             $item->dateReceived = now();
             $item->status = $status;
@@ -319,16 +346,20 @@ class StudentBagItemController extends Controller
         } else {
             return $response;
         }
+
+        
         $description = $stocks == 0
         ? "The item {$item->code} you\'ve requested is now RESERVED."
         : "The item {$item->code} you\'ve requested is now ready to be CLAIMED.";
-    
+        $redirect = $stocks == 0
+        ? "Reserve"
+        : "Claim";
         
         $mailController->createdata([
             'description' => $description,
             'time' => now(),
             'isDone' => false,
-            'redirectTo' => '',
+            'redirectTo' => $redirect,
             'notificationId' => $stuId
         ]);
         if ($status == 'Request') {
@@ -387,6 +418,15 @@ class StudentBagItemController extends Controller
         ->take($count)
         ->get();
         foreach($items as $item){
+            $mailController = new MailsController();
+            $description = "The Item {$items->code} that is reserved is now ready to be CLAIMED.";
+            $mailController->createdata([
+                'description' => $description,
+                'time' => now(),
+                'isDone' => false,
+                'redirectTo' => 'Claim',
+                'notificationId' => $items->id
+            ]);
             if($item->shift  == "A"){
                 $item->claiming_schedule = "$scheduleA[0] to $scheduleA[2]";
             }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student\Mails;
+use App\Models\Student\Profile;
 
 class MailsController extends Controller
 {
@@ -14,10 +15,14 @@ class MailsController extends Controller
     }
 
     public function store(Request $request){  
+        $profile = new ProfileController();
+        $profile->addread($request['notificationId'] );
         return Mails::create($request->all());
-     }
+    }
 
-     public function createData(array $data) {
+    public function createData(array $data) {
+        $profile = new ProfileController();
+        $profile->addread($data['notificationId'] );
         return Mails::create($data);
     }
 
@@ -27,7 +32,7 @@ class MailsController extends Controller
 
     }
 
-     public function show($notificationId){
+    public function show($notificationId){
         $mails = Mails::where('notificationId', $notificationId)
         ->orderBy('id', 'desc')
         ->get();
@@ -37,11 +42,36 @@ class MailsController extends Controller
         }
 
         return response()->json(['mails' => $mails]);
-     } 
- 
-     public function destroy($id){
+    }
+    
+    public function isTapped($id)
+    {
+        $mail = Mails::find($id);
+
+        if (!$mail) {
+            return response()->json(['message' => 'Mail not found'], 404);
+        }
+
+        $mail->isTapped = true;
+        $mail->save();
+
+        return response()->json(['message' => 'Mail marked as tapped'], 200);
+    }
+
+    public function allread($notificationId, ProfileController $profileController)
+    {
+        $updated = Mails::where('notificationId', $notificationId)->update(['isRead' => true]);
+
+        if ($updated > 0) {
+            $profileController->zeroread($notificationId);
+            return response()->json(['message' => 'All mails marked as read'], 200);
+        }
+        return response()->json(['message' => 'No mails found for the given notification ID'], 404);
+    }
+
+    public function destroy($id){
         $mails = Mails::find($id);
         $mails -> delete();
         return response()-> json(['message' => 'Mail Removed']);
-     }
+    }
 }

@@ -16,6 +16,8 @@ class Profile extends Model
         'Course',
         'Department',
         'Year',
+        'anncount',
+        'noitifcount',
         'Status',
         'stu_id'
     ];

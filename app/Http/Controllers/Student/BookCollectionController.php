@@ -8,6 +8,7 @@ use App\Models\Student\BookCollection;
 use App\Http\Controllers\Item\ItemBookController;
 use App\Http\Controllers\Student\MailsController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Student\ProfileController;
 
 class BookCollectionController extends Controller
 {   
@@ -69,6 +70,7 @@ class BookCollectionController extends Controller
         $scheduleB = ["Thursday", "Friday", "Saturday"];
         $requestController = new ItemBookController();
         $departmentController = new DepartmentController();
+
         $validatedData = $request->validate([
             'BookName' => 'nullable|string|max:255',
             'SubjectCode' => 'nullable|string|max:255',
@@ -86,6 +88,23 @@ class BookCollectionController extends Controller
         if (empty($validatedData['code'])) {
             $validatedData['code'] = $this->generateCode();
         }
+        
+        $mailController = new MailsController();
+        $description = $stocks == 0
+        ? "The Book {$validatedData['code']} you've requested is now RESERVED."
+        : "The Book {$validatedData['code']} you've requested is now ready to be CLAIMED.";
+
+        $redirect = $stocks == 0
+        ? "Reserve"
+        : "Claim";
+
+        $mailController->createdata([
+            'description' => $description,
+            'time' => now(),
+            'isDone' => false,
+            'redirectTo' => $redirect,
+            'notificationId' => $validatedData['stubag_id']
+        ]);
 
         if($validatedData['Status'] == 'Request'){
             if($stocks == 0){
@@ -242,6 +261,16 @@ class BookCollectionController extends Controller
         }
 
         if($status == 'Complete'){
+            $mailController = new MailsController();
+            $description = "Your Book has been CLAIMED.";
+
+            $mailController->createdata([
+                'description' => $description,
+                'time' => now(),
+                'isDone' => false,
+                'redirectTo' => 'Complete',
+                'notificationId' => $bookCollection->id
+            ]);
             $bookCollection->dateReceived = now();
             $bookCollection->Status = $status;
             $bookCollection->claiming_schedule = null;
@@ -263,7 +292,7 @@ class BookCollectionController extends Controller
             return response()->json(['Book not found'], status: 400);
         }
         $requestController = new ItemBookController();
-        $mailController = new MailsController();
+        
         $departmentController = new DepartmentController();
 
         $bookname = $bookCollection->BookName;
@@ -276,16 +305,20 @@ class BookCollectionController extends Controller
         } else {
             return $response;
         }
+        $mailController = new MailsController();
         $description = $stocks == 0
-        ? "The Book {$bookCollection->code} you\'ve requested is now RESERVED."
-        : "The Book {$bookCollection->code} you\'ve requested is now ready to be CLAIMED.";
+        ? "The Book {$bookCollection->code} you've requested is now RESERVED."
+        : "The Book {$bookCollection->code} you've requested is now ready to be CLAIMED.";
+        $redirect = $stocks == 0
+        ? "Reserve"
+        : "Claim";
     
         
         $mailController->createdata([
             'description' => $description,
             'time' => now(),
             'isDone' => false,
-            'redirectTo' => '',
+            'redirectTo' => $redirect,
             'notificationId' => $stuId
         ]);
         if($status == 'Request'){
@@ -333,6 +366,16 @@ class BookCollectionController extends Controller
             ->get();
 
         foreach ($bookCollection as $books) {
+            $mailController = new MailsController();
+            $description = "The Book {$bookCollection->code} that is reserved is now ready to be CLAIMED.";
+            $mailController->createdata([
+                'description' => $description,
+                'time' => now(),
+                'isDone' => false,
+                'redirectTo' => 'Claim',
+                'notificationId' => $books->id
+            ]);
+
             if($books->shift == 'A'){
                     $books->claiming_schedule = "$scheduleA[0] to $scheduleA[2]";
                 }
