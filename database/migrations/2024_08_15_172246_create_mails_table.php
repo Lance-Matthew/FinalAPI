@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('description');
             $table->time('time');
             $table->boolean('isDone')->default(false);
+            $table->boolean('isTapped')->default(false);
+            $table->boolean('isRead')->default(false);
             $table->string('redirectTo');
             $table->bigInteger('notificationId')->unsigned();
             $table->foreign('notificationId')->references('id')->on('notifications');

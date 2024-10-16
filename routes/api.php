@@ -61,12 +61,15 @@ Route::get('/showallbooks/{stubag_id}/{status}', [BookCollectionController::clas
 Route::get('/bookpickup/{code}', [BookCollectionController::class, 'codeShow']);
 
 Route::put('/notificationdone/{id}', [MailsController::class,'notificationDone']);
+Route::put('/notiftapped/{id}', [MailsController::class,'isTapped']);
+Route::put('/readall/{notificationId}', [MailsController::class, 'allRead']);
+
 
 Route::post('/requestbook/{stocks}', [BookCollectionController::class, 'requestbook']);
 Route::post('/requestitem/{stocks}', [StudentBagItemController::class, 'requestitem']);
 
-Route::post('/completebook', [BookCollectionController::class, 'completedBooks']);
-Route::post('/completeitem', [StudentBagItemController::class, 'completedItems']);
+Route::get('/completebook', [BookCollectionController::class, 'completedBooks']);
+Route::get('/completeitem', [StudentBagItemController::class, 'completedItems']);
 
 Route::put('/displaybook/{department}/{count}/{logic}/{operator}', [DepartmentController::class, 'displaycounts']);
 Route::put('/displayitem/{department}/{count}/{logic}/{operator}', [DepartmentController::class, 'displaycounts']);

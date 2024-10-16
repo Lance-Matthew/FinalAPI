@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('Year');
             $table->string('Status');
             $table->string('stu_id');
+            $table->integer('notifcount')->default(0);
+            $table->integer('anncount')->default(0);
             $table->foreign('stu_id')->references('studentId')->on('students')->onDelete('cascade');
             $table->timestamps();
         });
