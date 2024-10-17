@@ -257,11 +257,11 @@ class StudentBagItemController extends Controller
         if($status == 'Reserved'){
             $items = StudentBagItem::find($id)->first();
             $highestReservation = StudentBagItem::
-            where('Type', $item->Type)
-            ->where('Size', $item->Size)
-            ->where('Course', $item->Course)
-            ->where('Body', $item->Body)
-            ->where('Gender', $item->Gender)
+            where('Type', $items->Type)
+            ->where('Size', $items->Size)
+            ->where('Course', $items->Course)
+            ->where('Body', $items->Body)
+            ->where('Gender', $items->Gender)
             ->max('reservationNumber');
 
             $item->status = 'Reserved';
@@ -303,10 +303,10 @@ class StudentBagItemController extends Controller
                 'notificationId' => $items->id
             ]);
             $items = StudentBagItem::find($id)->first();
-            $item->dateReceived = now();
-            $item->status = $status;
-            $item->claiming_schedule = null;
-            $item->code = null;
+            $items->dateReceived = now();
+            $items->status = $status;
+            $items->claiming_schedule = null;
+            $items->code = null;
             $requestController->reduceStock(1,  $course, $gender, $type, $body, $size,'stock');
             $departmentController->displaycounts($items->Department, 1, 'complete', 'add');
             $departmentController->displaycounts($items->Department, 1, 'claim', 'subtract');
@@ -438,11 +438,11 @@ class StudentBagItemController extends Controller
 
             $responseClaim = $departmentController->displaycounts($item->Department, 1, 'claim', 'add');
             if ($responseClaim->getStatusCode() !== 200) {
-                return $responseClaim; // Return error response from displaycounts if not successful
+                return $responseClaim;
             }
             $responseClaim = $departmentController->displaycounts($item->Department, 1, 'reserved', 'subtract');
             if ($responseClaim->getStatusCode() !== 200) {
-                return $responseClaim; // Return error response from displaycounts if not successful
+                return $responseClaim;
             }
             $item->status = 'Claim';
             $item->reservationNumber = null;
