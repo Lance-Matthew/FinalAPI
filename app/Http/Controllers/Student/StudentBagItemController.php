@@ -255,18 +255,17 @@ class StudentBagItemController extends Controller
         $size = $item->Size;
         $stuId = $item->stubag_id;
         if($status == 'Reserved'){
-            $items = StudentBagItem::find($id)->first();
             $highestReservation = StudentBagItem::
-            where('Type', $items->Type)
-            ->where('Size', $items->Size)
-            ->where('Course', $items->Course)
-            ->where('Body', $items->Body)
-            ->where('Gender', $items->Gender)
+            where('Type', $item->Type)
+            ->where('Size', $item->Size)
+            ->where('Course', $item->Course)
+            ->where('Body', $item->Body)
+            ->where('Gender', $item->Gender)
             ->max('reservationNumber');
 
             $item->status = 'Reserved';
             $item->reservationNumber = ++$highestReservation;
-            $departmentController->displaycounts($items->Department, 1, 'reserved', 'add');
+            $departmentController->displaycounts($item->Department, 1, 'reserved', 'add');
             
             $requestController->reduceStock(1,  $course, $gender, $type, $body, $size, 'reserved');
             $item->save();
@@ -274,7 +273,6 @@ class StudentBagItemController extends Controller
         
 
         if($status == 'Claim'){
-            $items = StudentBagItem::find($id)->first();
             if($item->shift  == "A"){
                 $item->claiming_schedule = "$scheduleA[0] to $scheduleA[2]";
             }
@@ -286,8 +284,8 @@ class StudentBagItemController extends Controller
             }
             $item->status = $status;
             $item->reservationNumber = null;
-            $departmentController->displaycounts($items->Department, 1, 'claim', 'add');
-            $departmentController->displaycounts($items->Department, 1, 'reserved', 'subtract');
+            $departmentController->displaycounts($item->Department, 1, 'claim', 'add');
+            $departmentController->displaycounts($item->Department, 1, 'reserved', 'subtract');
         
         }
 
@@ -300,20 +298,18 @@ class StudentBagItemController extends Controller
                 'time' => now(),
                 'isDone' => false,
                 'redirectTo' => 'Complete',
-                'notificationId' => $items->id
+                'notificationId' => $item->id
             ]);
-            $items = StudentBagItem::find($id)->first();
-            $items->dateReceived = now();
-            $items->status = $status;
-            $items->claiming_schedule = null;
-            $items->code = null;
+            $item->dateReceived = now();
+            $item->status = $status;
+            $item->claiming_schedule = null;
+            $item->code = null;
             $requestController->reduceStock(1,  $course, $gender, $type, $body, $size,'stock');
-            $departmentController->displaycounts($items->Department, 1, 'complete', 'add');
-            $departmentController->displaycounts($items->Department, 1, 'claim', 'subtract');
+            $departmentController->displaycounts($item->Department, 1, 'complete', 'add');
+            $departmentController->displaycounts($item->Department, 1, 'claim', 'subtract');
         }
         
         $item->save();
-
         return response()->json(['message' => 'Status changed successfully'], status: 200);
     }
 
