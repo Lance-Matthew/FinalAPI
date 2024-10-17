@@ -263,7 +263,7 @@ class StudentBagItemController extends Controller
             ->where('Gender', $item->Gender)
             ->max('reservationNumber');
 
-            $item->status = 'Reserved';
+            $item->Status = 'Reserved';
             $item->reservationNumber = ++$highestReservation;
             $departmentController->displaycounts($item->Department, 1, 'reserved', 'add');
             
@@ -282,7 +282,7 @@ class StudentBagItemController extends Controller
             else{
                 return response()->json(['message' => 'Department not found in either shift'], status: 400);
             }
-            $item->status = $status;
+            $item->Status = $status;
             $item->reservationNumber = null;
             $departmentController->displaycounts($item->Department, 1, 'claim', 'add');
             $departmentController->displaycounts($item->Department, 1, 'reserved', 'subtract');
@@ -301,7 +301,7 @@ class StudentBagItemController extends Controller
                 'notificationId' => $item->id
             ]);
             $item->dateReceived = now();
-            $item->status = $status;
+            $item->Status = $status;
             $item->claiming_schedule = null;
             $item->code = null;
             $requestController->reduceStock(1,  $course, $gender, $type, $body, $size,'stock');
@@ -440,7 +440,7 @@ class StudentBagItemController extends Controller
             if ($responseClaim->getStatusCode() !== 200) {
                 return $responseClaim;
             }
-            $item->status = 'Claim';
+            $item->Status = 'Claim';
             $item->reservationNumber = null;
             
             if (!$item->save()) {
@@ -463,7 +463,7 @@ class StudentBagItemController extends Controller
         }
         else{
             $items = StudentBagItem::where('stubag_id', $stubag_id)
-            ->where('status', $status)
+            ->where('Status', $status)
             ->get();
             return response()->json(['items' => $items]);
         }
