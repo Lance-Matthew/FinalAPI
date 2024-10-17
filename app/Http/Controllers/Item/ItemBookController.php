@@ -11,9 +11,27 @@ class ItemBookController extends Controller
       
    }
 
-   public function store(Request $request){  
-
-   }
+   public function store(Request $request){
+      $request->validate([
+          'Course' => 'required|max:50|string',
+          'Department' => 'required|max:50|string',
+          'BookName' => 'required|max:50|string',
+          'SubjectCode' => 'required|max:50|string',
+          'SubjectDesc' => 'required|max:50|string',
+          'Stock' => 'required|max:10|int',
+          'Reserved' => 'required|max:10|int',
+      ]);
+      ItemBook::create([
+          'Course' => $request->Course,
+          'Department' => $request->Department,
+          'BookName' => $request->BookName,
+          'SubjectCode' => $request->SubjectCode,
+          'SubjectDesc' => $request->SubjectDesc,
+          'Stock' => $request->Stock,
+          'Reserved' => $request->Reserved,
+      ]);
+      return response()->json(['message' => "Added Succesfully"]);
+  }
 
    // DAGDAG / GINALAW NI LANCE
    public function show($Course){
@@ -29,7 +47,9 @@ class ItemBookController extends Controller
 
    }
    public function destroy($id){
-
+      $data = ItemBook::find($id);
+      $data -> delete();
+      return response()->json(['message' => "Deleted successfully"]);
    }
 
    public function reduceStock($count, $bookname, $logic)
