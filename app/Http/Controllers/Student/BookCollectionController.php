@@ -269,7 +269,7 @@ class BookCollectionController extends Controller
                 'time' => now(),
                 'isDone' => false,
                 'redirectTo' => 'Complete',
-                'notificationId' => $bookCollection->id
+                'notificationId' => $bookCollection->stubag_id
             ]);
             $bookCollection->dateReceived = now();
             $bookCollection->Status = $status;
@@ -373,7 +373,7 @@ class BookCollectionController extends Controller
                 'time' => now(),
                 'isDone' => false,
                 'redirectTo' => 'Claim',
-                'notificationId' => $books->id
+                'notificationId' => $books->stubag_id
             ]);
 
             if($books->shift == 'A'){
