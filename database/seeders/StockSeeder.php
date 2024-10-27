@@ -17,7 +17,7 @@ class StockSeeder extends Seeder
             // BSIT //
             [
                 'stockName' => 'Corporate', //
-                'stockPhoto' => 'BSIT.jpg',
+                'stockPhoto' => 'BSIT.png',
                 'Course' => 'BSIT',
                 'Gender' => 'Male',
                 'Type' => 'Corporate',
@@ -25,27 +25,11 @@ class StockSeeder extends Seeder
             ],
             [
                 'stockName' => 'Corporate', //
-                'stockPhoto' => 'BSIT.jpg',
+                'stockPhoto' => 'BSIT.png',
                 'Course' => 'BSIT',
                 'Gender' => 'Male',
                 'Type' => 'Corporate',
                 'Body' => 'Pants',
-            ],
-            [
-                'stockName' => 'Corporate', 
-                'stockPhoto' => 'BSIT.jpg',
-                'Course' => 'BSIT',
-                'Gender' => 'Female',
-                'Type' => 'Corporate',
-                'Body' => 'Shirt',
-            ],
-            [
-                'stockName' => 'Corporate', 
-                'stockPhoto' => 'BSIT.jpg',
-                'Course' => 'BSIT',
-                'Gender' => 'Female',
-                'Type' => 'Corporate',
-                'Body' => 'Skirt',
             ],
             [
                 'stockName' => 'RSO', //
@@ -54,6 +38,22 @@ class StockSeeder extends Seeder
                 'Gender' => 'Male',
                 'Type' => 'RSO',
                 'Body' => 'Shirt',
+            ],
+            [
+                'stockName' => 'Corporate', 
+                'stockPhoto' => 'BSIT.png',
+                'Course' => 'BSIT',
+                'Gender' => 'Female',
+                'Type' => 'Corporate',
+                'Body' => 'Shirt',
+            ],
+            [
+                'stockName' => 'Corporate', 
+                'stockPhoto' => 'BSIT.png',
+                'Course' => 'BSIT',
+                'Gender' => 'Female',
+                'Type' => 'Corporate',
+                'Body' => 'Skirt',
             ],
 
 
