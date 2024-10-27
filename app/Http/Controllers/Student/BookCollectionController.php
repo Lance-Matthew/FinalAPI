@@ -121,7 +121,7 @@ class BookCollectionController extends Controller
                 if($validatedData['shift'] == 'A'){
                     $validatedData['claiming_schedule'] = "$scheduleA[0] to $scheduleA[2]";
                 }
-                elseif($validatedData['Department'] == 'B'){
+                elseif($validatedData['shift'] == 'B'){
                     $validatedData['claiming_schedule'] = "$scheduleB[0] to $scheduleB[2]";
                 }
                 else{
