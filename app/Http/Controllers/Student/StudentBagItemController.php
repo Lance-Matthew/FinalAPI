@@ -298,7 +298,7 @@ class StudentBagItemController extends Controller
                 'time' => now(),
                 'isDone' => false,
                 'redirectTo' => 'Complete',
-                'notificationId' => $stuId
+                'notificationId' => $item->stuId
             ]);
             $item->dateReceived = now();
             $item->Status = $status;

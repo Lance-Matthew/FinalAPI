@@ -101,16 +101,31 @@ class StudentController extends Controller
             return response()->json(['error' => 'Failed to update password'], 500);
         }
     }
-     public function destroy($id){
+    public function destroy($id) {
         $student = Student::find($id);
-        $student -> delete();
-        $student -> profile()->delete();
-        $student -> studentBag()->delete();
-        $student -> notification()->delete();
-        return response()-> json(['message' => 'Student Removed']);
-     }
+    
+        if ($student) {
+            foreach ($student->studentBag as $bag) {
+                $bag->studentBagItems()->delete();
+                $bag->bookCollection()->delete();
+                $bag->delete();
+            }
+    
+            foreach ($student->notification as $notification) {
+                $notification->mail()->delete();
+                $notification->delete();
+            }
+    
+            $student->profile()->delete();
+            $student->delete();
+    
+            return response()->json(['message' => 'Student and all related data removed']);
+        }
+    
+        return response()->json(['message' => 'Student not found'], 404);
+    }
 
-     public function login(Request $request) {
+    public function login(Request $request) {
         $validator = Validator::make($request->all(), [
             'studentId' => 'required',
             'password' => 'required',
