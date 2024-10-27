@@ -16,7 +16,7 @@ class StockSeeder extends Seeder
             // CITE
             // BSIT //
             [
-                'stockName' => 'Corporate (M)', //
+                'stockName' => 'Corporate', //
                 'stockPhoto' => 'BSIT.jpg',
                 'Course' => 'BSIT',
                 'Gender' => 'Male',
@@ -24,7 +24,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)', //
+                'stockName' => 'Corporate', //
                 'stockPhoto' => 'BSIT.jpg',
                 'Course' => 'BSIT',
                 'Gender' => 'Male',
@@ -32,7 +32,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Pants',
             ],
             [
-                'stockName' => 'Corporate (F)', 
+                'stockName' => 'Corporate', 
                 'stockPhoto' => 'BSIT.jpg',
                 'Course' => 'BSIT',
                 'Gender' => 'Female',
@@ -40,7 +40,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)', 
+                'stockName' => 'Corporate', 
                 'stockPhoto' => 'BSIT.jpg',
                 'Course' => 'BSIT',
                 'Gender' => 'Female',
@@ -61,7 +61,7 @@ class StockSeeder extends Seeder
             // CAHS
             // BSN //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSN.png',
                 'Course' => 'BSN',
                 'Gender' => 'Male',
@@ -69,7 +69,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSN.png',
                 'Course' => 'BSN',
                 'Gender' => 'Male',
@@ -78,7 +78,7 @@ class StockSeeder extends Seeder
             ],
             /// FF
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSN.png',
                 'Course' => 'BSN',
                 'Gender' => 'Female',
@@ -86,7 +86,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSN.png',
                 'Course' => 'BSN',
                 'Gender' => 'Female',
@@ -107,7 +107,7 @@ class StockSeeder extends Seeder
 
             // BSMLS //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSMLS.png',
                 'Course' => 'BSMLS',
                 'Gender' => 'Male',
@@ -115,7 +115,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSMLS.png',
                 'Course' => 'BSMLS',
                 'Gender' => 'Male',
@@ -124,7 +124,7 @@ class StockSeeder extends Seeder
             ],
             /// FF
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSMLS.png',
                 'Course' => 'BSMLS',
                 'Gender' => 'Female',
@@ -132,7 +132,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSMLS.png',
                 'Course' => 'BSMLS',
                 'Gender' => 'Female',
@@ -152,7 +152,7 @@ class StockSeeder extends Seeder
 
             // BSPHARMA //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSPHARMA.png',
                 'Course' => 'BSPHARMA',
                 'Gender' => 'Male',
@@ -160,7 +160,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSPHARMA.png',
                 'Course' => 'BSPHARMA',
                 'Gender' => 'Male',
@@ -169,7 +169,7 @@ class StockSeeder extends Seeder
             ],
             // FFF
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSPHARMA.png',
                 'Course' => 'BSPHARMA',
                 'Gender' => 'Male',
@@ -177,7 +177,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSPHARMA.png',
                 'Course' => 'BSPHARMA',
                 'Gender' => 'Female',
@@ -196,7 +196,7 @@ class StockSeeder extends Seeder
 
             // BSPSYCH //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSPSYCH.png',
                 'Course' => 'BSPSYCH',
                 'Gender' => 'Male',
@@ -204,7 +204,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSPSYCH.png',
                 'Course' => 'BSPSYCH',
                 'Gender' => 'Male',
@@ -220,7 +220,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSPSYCH.png',
                 'Course' => 'BSPSYCH',
                 'Gender' => 'Female',
@@ -228,7 +228,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSPSYCH.png',
                 'Course' => 'BSPSYCH',
                 'Gender' => 'Female',
@@ -239,7 +239,7 @@ class StockSeeder extends Seeder
             // CEAaa
             // BSCE //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCE.png',
                 'Course' => 'BSCE',
                 'Gender' => 'Male',
@@ -247,7 +247,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCE.png',
                 'Course' => 'BSCE',
                 'Gender' => 'Male',
@@ -263,7 +263,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCE.png',
                 'Course' => 'BSCE',
                 'Gender' => 'Female',
@@ -271,7 +271,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCE.png',
                 'Course' => 'BSCE',
                 'Gender' => 'Female',
@@ -282,7 +282,7 @@ class StockSeeder extends Seeder
 
             // BSCPE //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCPE.png',
                 'Course' => 'BSCPE',
                 'Gender' => 'Male',
@@ -290,7 +290,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCPE.png',
                 'Course' => 'BSCPE',
                 'Gender' => 'Male',
@@ -306,7 +306,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCPE.png',
                 'Course' => 'BSCPE',
                 'Gender' => 'Female',
@@ -314,7 +314,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCPE.png',
                 'Course' => 'BSCPE',
                 'Gender' => 'Female',
@@ -324,7 +324,7 @@ class StockSeeder extends Seeder
 
             // BSECE //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSECE.png',
                 'Course' => 'BSECE',
                 'Gender' => 'Male',
@@ -332,7 +332,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSECE.png',
                 'Course' => 'BSECE',
                 'Gender' => 'Male',
@@ -348,7 +348,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSECE.png',
                 'Course' => 'BSECE',
                 'Gender' => 'Female',
@@ -356,7 +356,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSECE.png',
                 'Course' => 'BSECE',
                 'Gender' => 'Female',
@@ -366,7 +366,7 @@ class StockSeeder extends Seeder
 
             // BSARCHI
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSARCHI.png',
                 'Course' => 'BSARCHI',
                 'Gender' => 'Male',
@@ -374,7 +374,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSARCHI.png',
                 'Course' => 'BSARCHI',
                 'Gender' => 'Male',
@@ -390,7 +390,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSARCHI.png',
                 'Course' => 'BSARCHI',
                 'Gender' => 'Female',
@@ -398,7 +398,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSARCHI.png',
                 'Course' => 'BSARCHI',
                 'Gender' => 'Female',
@@ -409,7 +409,7 @@ class StockSeeder extends Seeder
             // // CMA
             // // BSA //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSA.png',
                 'Course' => 'BSA',
                 'Gender' => 'Male',
@@ -417,7 +417,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSA.png',
                 'Course' => 'BSA',
                 'Gender' => 'Male',
@@ -433,7 +433,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSA.png',
                 'Course' => 'BSA',
                 'Gender' => 'Female',
@@ -441,7 +441,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSA.png',
                 'Course' => 'BSA',
                 'Gender' => 'Female',
@@ -451,7 +451,7 @@ class StockSeeder extends Seeder
 
             // // BST //
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BST.png',
                 'Course' => 'BST',
                 'Gender' => 'Male',
@@ -459,7 +459,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BST.png',
                 'Course' => 'BST',
                 'Gender' => 'Male',
@@ -475,7 +475,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BST.png',
                 'Course' => 'BST',
                 'Gender' => 'Female',
@@ -483,7 +483,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BST.png',
                 'Course' => 'BST',
                 'Gender' => 'Female',
@@ -494,7 +494,7 @@ class StockSeeder extends Seeder
 
             // // BSHM
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSHM.png',
                 'Course' => 'BSHM',
                 'Gender' => 'Male',
@@ -502,7 +502,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSHM.png',
                 'Course' => 'BSHM',
                 'Gender' => 'Male',
@@ -518,7 +518,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSHM.png',
                 'Course' => 'BSHM',
                 'Gender' => 'Female',
@@ -526,7 +526,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSHM.png',
                 'Course' => 'BSHM',
                 'Gender' => 'Female',
@@ -538,7 +538,7 @@ class StockSeeder extends Seeder
             // // CELA
             // // BSED
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSED.png',
                 'Course' => 'BSED',
                 'Gender' => 'Male',
@@ -546,7 +546,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSED.png',
                 'Course' => 'BSED',
                 'Gender' => 'Male',
@@ -562,7 +562,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSED.png',
                 'Course' => 'BSED',
                 'Gender' => 'Female',
@@ -570,7 +570,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSED.png',
                 'Course' => 'BSED',
                 'Gender' => 'Female',
@@ -582,7 +582,7 @@ class StockSeeder extends Seeder
 
             // // BSPOLSCI
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'POLSCI.png',
                 'Course' => 'BSPOLSCI',
                 'Gender' => 'Male',
@@ -590,7 +590,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'POLSCI.png',
                 'Course' => 'BSPOLSCI',
                 'Gender' => 'Male',
@@ -606,7 +606,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'POLSCI.png',
                 'Course' => 'BSPOLSCI',
                 'Gender' => 'Female',
@@ -614,7 +614,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'POLSCI.png',
                 'Course' => 'BSPOLSCI',
                 'Gender' => 'Female',
@@ -626,7 +626,7 @@ class StockSeeder extends Seeder
             // // CCJE
             // // BSCRIM
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCRIM.png',
                 'Course' => 'BSCRIM',
                 'Gender' => 'Male',
@@ -634,7 +634,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (M)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCRIM.png',
                 'Course' => 'BSCRIM',
                 'Gender' => 'Male',
@@ -650,7 +650,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCRIM.png',
                 'Course' => 'BSCRIM',
                 'Gender' => 'Female',
@@ -658,7 +658,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'Corporate (F)',
+                'stockName' => 'Corporate',
                 'stockPhoto' => 'BSCRIM.png',
                 'Course' => 'BSCRIM',
                 'Gender' => 'Female',
@@ -668,7 +668,7 @@ class StockSeeder extends Seeder
 
             // // CAS //
             [
-                'stockName' => 'University (M)',
+                'stockName' => 'University',
                 'stockPhoto' => 'UNIVERSITY.jpg',
                 'Course' => 'CAS',
                 'Gender' => 'Male',
@@ -676,7 +676,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'University (M)',
+                'stockName' => 'University',
                 'stockPhoto' => 'UNIVERSITY.jpg',
                 'Course' => 'CAS',
                 'Gender' => 'Male',
@@ -692,7 +692,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'University (F)',
+                'stockName' => 'University',
                 'stockPhoto' => 'UNIVERSITY.jpg',
                 'Course' => 'CAS',
                 'Gender' => 'Female',
@@ -700,7 +700,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'University (F)',
+                'stockName' => 'University',
                 'stockPhoto' => 'UNIVERSITY.jpg',
                 'Course' => 'CAS',
                 'Gender' => 'Female',
@@ -711,7 +711,7 @@ class StockSeeder extends Seeder
 
             // // SHS //
             [
-                'stockName' => 'SHS (M)',
+                'stockName' => 'SHS',
                 'stockPhoto' => 'SHS.png',
                 'Course' => 'SHS',
                 'Gender' => 'Male',
@@ -719,7 +719,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'SHS (M)',
+                'stockName' => 'SHS',
                 'stockPhoto' => 'SHS.png',
                 'Course' => 'SHS',
                 'Gender' => 'Male',
@@ -727,7 +727,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Pants',
             ],
             [
-                'stockName' => 'SHS (F)',
+                'stockName' => 'SHS',
                 'stockPhoto' => 'SHS.png',
                 'Course' => 'SHS',
                 'Gender' => 'Female',
@@ -735,7 +735,7 @@ class StockSeeder extends Seeder
                 'Body' => 'Shirt',
             ],
             [
-                'stockName' => 'SHS (F)',
+                'stockName' => 'SHS',
                 'stockPhoto' => 'SHS.png',
                 'Course' => 'SHS',
                 'Gender' => 'Female',
