@@ -134,20 +134,27 @@ class ItemrsoController extends Controller
       return response()->json(['stock' => $item->Stock], 200);
    }
 
-   public function reduce($course, $gender, $type, $body, $size, $count){
+   public function reduce($course, $gender, $type, $body, $size, $count) {
+  
       $item = Itemrso::where('Course', $course)
-               ->where('Gender', $gender)
-               ->where('Type', $type)
-               ->where('Body', $body)
-               ->where('Size', $size)
-               ->first();
-
+                     ->where('Gender', $gender)
+                     ->where('Type', $type)
+                     ->where('Body', $body)
+                     ->where('Size', $size)
+                     ->first();
+  
       if (!$item) {
-         return response()->json(["message' => 'Item not found specificForm {$course}, {$gender}, {$type}, {$body}, {$size}"], 404);
+          return response()->json(['message' => "Item not found with specified attributes: Course {$course}, Gender {$gender}, Type {$type}, Body {$body}, Size {$size}"], 404);
       }
+  
+      if ($item->Stock < $count) {
+          return response()->json(['message' => 'Insufficient stock'], 400);
+      }
+  
       $item->Stock -= $count;
       $item->save();
+  
       return response()->json(['stock' => $item->Stock], 200);
-   }
+  }
    
 }
