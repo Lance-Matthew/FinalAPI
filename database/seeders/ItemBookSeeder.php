@@ -168,7 +168,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSCPE',
                 'Department' => 'CEA',
-                'BookName' => 'Applied Calculus',
+                'BookName' => 'Applied Calculus 2',
                 'SubjectCode' => 'CAL 021',
                 'SubjectDesc' => 'Variations for Engineers',
                 'Stock' => '10',
@@ -178,7 +178,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSCPE',
                 'Department' => 'CEA',
-                'BookName' => 'Tensor Calculus',
+                'BookName' => 'Tensor Calculus 2',
                 'SubjectCode' => 'CAL 203',
                 'SubjectDesc' => 'Simplified tools and Techniques',
                 'Stock' => '10',
@@ -187,7 +187,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSCPE',
                 'Department' => 'CEA',
-                'BookName' => 'Advanced Calculus',
+                'BookName' => 'Advanced Calculus 2',
                 'SubjectCode' => 'CAL 223',
                 'SubjectDesc' => 'Applications in physics and Chemistry',
                 'Stock' => '10',
@@ -197,7 +197,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSECE',
                 'Department' => 'CEA',
-                'BookName' => 'Applied Calculus',
+                'BookName' => 'Applied Calculus 3',
                 'SubjectCode' => 'CAL 021',
                 'SubjectDesc' => 'Variations for Engineers',
                 'Stock' => '10',
@@ -207,7 +207,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSECE',
                 'Department' => 'CEA',
-                'BookName' => 'Tensor Calculus',
+                'BookName' => 'Tensor Calculus 3',
                 'SubjectCode' => 'CAL 203',
                 'SubjectDesc' => 'Simplified tools and Techniques',
                 'Stock' => '10',
@@ -216,7 +216,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSECE',
                 'Department' => 'CEA',
-                'BookName' => 'Advanced Calculus',
+                'BookName' => 'Advanced Calculus 3',
                 'SubjectCode' => 'CAL 223',
                 'SubjectDesc' => 'Applications in physics and Chemistry',
                 'Stock' => '10',
@@ -226,7 +226,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSARCHI',
                 'Department' => 'CEA',
-                'BookName' => 'Applied Calculus',
+                'BookName' => 'Applied Calculus 4',
                 'SubjectCode' => 'CAL 021',
                 'SubjectDesc' => 'Variations for Engineers',
                 'Stock' => '10',
@@ -236,7 +236,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSARCHI',
                 'Department' => 'CEA',
-                'BookName' => 'Tensor Calculus',
+                'BookName' => 'Tensor Calculus 4',
                 'SubjectCode' => 'CAL 203',
                 'SubjectDesc' => 'Simplified tools and Techniques',
                 'Stock' => '10',
@@ -245,7 +245,7 @@ class ItemBookSeeder extends Seeder
             [
                 'Course' => 'BSARCHI',
                 'Department' => 'CEA',
-                'BookName' => 'Advanced Calculus',
+                'BookName' => 'Advanced Calculus 4',
                 'SubjectCode' => 'CAL 223',
                 'SubjectDesc' => 'Applications in physics and Chemistry',
                 'Stock' => '10',
