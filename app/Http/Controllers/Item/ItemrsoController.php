@@ -134,9 +134,8 @@ class ItemrsoController extends Controller
       return response()->json(['stock' => $item->Stock], 200);
    }
 
-   public function reduce($department, $course, $gender, $type, $body, $size, $count){
+   public function reduce($course, $gender, $type, $body, $size, $count){
       $item = Itemrso::where('Course', $course)
-               ->where('Department', $department)
                ->where('Gender', $gender)
                ->where('Type', $type)
                ->where('Body', $body)
@@ -144,7 +143,7 @@ class ItemrsoController extends Controller
                ->first();
 
       if (!$item) {
-         return response()->json(["message' => 'Item not found specificForm {$department}, {$course}, {$gender}, {$type}, {$body}, {$size}"], 404);
+         return response()->json(["message' => 'Item not found specificForm {$course}, {$gender}, {$type}, {$body}, {$size}"], 404);
       }
       $item->Stock -= $count;
       $item->save();
