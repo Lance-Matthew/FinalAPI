@@ -95,7 +95,7 @@ Route::apiResource('departments', DepartmentController::class);
 Route::apiResource('courses', CourseController::class);
 Route::get('/courses/{$departmentID}', [CourseController::class, 'show']);
 
-// Stock
+// Stocka
 Route::apiResource('stocks', StockController::class);
 Route::get('/stocks/{Course}', [StockController::class, 'show']);
 
