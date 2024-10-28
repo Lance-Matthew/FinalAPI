@@ -119,15 +119,22 @@ class ItemBookController extends Controller
 
       return response()->json(['stock' => $item->Stock], 200);
    }
-
    public function reduce($bookname, $count){
+   
       $item = ItemBook::where('BookName', $bookname)->first();
-
+   
       if (!$item) {
          return response()->json(['message' => 'Item not found'], 404);
       }
+   
+      if ($item->Stock < $count) {
+         return response()->json(['message' => 'Insufficient stock'], 400);
+      }
+   
       $item->Stock -= $count;
       $item->save();
+   
       return response()->json(['stock' => $item->Stock], 200);
    }
+   
 }
