@@ -89,10 +89,14 @@ class ItemrsoController extends Controller
             $item->save();
       
             return response()->json(['message' => 'Reserved increased successfully'], 200);
+         }else if($logic == 'reduce'){  
+            $item->Stock -= $count;
+            $item->save();
+      
+            return response()->json(['message' => 'Reserved decreased successfully'], 200);
          }else if($logic == 'claim'){
             $item->Reserved -= $count;
             $item->save();
-      
             return response()->json(['message' => 'Reserved reduced successfully'], 200);
          }else if($logic == 'reservedFirst'){
             if($item->Reserved == 0){
@@ -106,6 +110,7 @@ class ItemrsoController extends Controller
                }
             }
             $item->save();
+            return response()->json(['message' => ' DONE successfully'], 200);
          }
          
       } catch (\Exception $e) {

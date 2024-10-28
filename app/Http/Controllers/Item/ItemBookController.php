@@ -86,6 +86,11 @@ class ItemBookController extends Controller
       
             return response()->json(['message' => 'Reserved reduced successfully'], 200);
 
+         }else if($logic == 'reduce'){  
+            $item->Stock -= $count;
+            $item->save();
+      
+            return response()->json(['message' => 'Reserved decreased successfully'], 200);
          }else if($logic == 'reservedFirst'){
             if($item->Reserved == 0){
                $item->Stock += $count;
